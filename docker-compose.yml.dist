@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+    mariadb:
+        build: docker/mariadb
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_DATABASE: symfony
+            MYSQL_ROOT_PASSWORD: root
+        volumes:
+            - ./mariadb:/var/lib/mysql
+
+    nginx:
+        build: docker/nginx
+        links:
+            - php
+        ports:
+            - 80:80
+        volumes:
+            - ./symfony:/var/www
+        environment:
+            VIRTUAL_HOST: test-symfony.vlabs,*.test-symfony.vlabs
+
+    php:
+        build: docker/php
+        hostname: console
+        links:
+            - mariadb
+        volumes:
+            - ./symfony:/var/www
+            - $SSH_AUTH_SOCK:/ssh-agent
+        environment:
+            - SSH_AUTH_SOCK=/ssh-agent
+        working_dir: /var/www
