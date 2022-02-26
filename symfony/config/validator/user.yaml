@@ -1,0 +1,7 @@
+App\Entity\User:
+    properties:
+        email:
+            - NotBlank:
+                message: "L'email doit être mentionné"
+            - Email:
+                message: L'email "{{ value }}" n'est pas un email valide.

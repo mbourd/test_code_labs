@@ -1,0 +1,21 @@
+App\Entity\Agency:
+type: entity
+table: agency
+repositoryClass: App\Repository\AgencyRepository
+id:
+    id:
+        type: integer
+        id: true
+        generator:
+            strategy: AUTO
+fields:
+    name:
+        type: string
+        length: '255'
+    address:
+        type: string
+        length: '255'
+    latitude:
+        type: float
+    longitude:
+        type: float
