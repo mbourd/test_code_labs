@@ -59,7 +59,7 @@ Dans le cadre de cet exercice, un client vous a contacté pour réaliser un outi
 ### :gear: Installation
 
 - Fork le repository puis le cloner.
-- Faire une copie du fichier `docker-compose.yml.dist` et la nommer `docker-compose.yml`. 
+- Faire une copie du fichier `docker-compose.yml.dist` et la nommer `docker-compose.yml`.
 - Aller dans le dossier racine `test-symfony` puis lancer la commande `docker-compose up --build`.
 - Effectuer l'installation de la [dernière version LTS de Symfony](https://symfony.com/releases/) (actuellement la 5.4.4) dans le dossier `test-symfony/symfony`. Vous pouvez accéder au container Docker PHP en utilisateur dev via `./runner php dev` à la racine du projet. Une fois dans le container, vous pouvez utiliser `composer` (pour installer Symfony et les autres vendors) et les commandes Symfony via `bin/console` directement.
 - Voici les configurations à utiliser :
@@ -74,7 +74,7 @@ Dans le cadre de cet exercice, un client vous a contacté pour réaliser un outi
   + URL de l'administration : `http://admin.test-symfony.vlabs` (dans le cas de l'utilisation de la configuration Docker Compose, sinon, précisez en haut du `README.md`). Par défaut, l'accès est `http://test-symfony.vlabs`, il faudra donc créer un [host](https://symfony.com/doc/current/routing.html#sub-domain-routing) pour gérer le sous-domaine, sa valeur provenant du fichier `.env` (ou `.env.local`, mais il faudra la version finale dans le `.env` pour avoir les informations sur git) et pouvant être appliqué à un [groupe de routes](https://symfony.com/doc/current/routing.html#routing-route-groups).
   + URL de l'API : `http://api.test-symfony.vlabs` (même cas que l'administration)
   + URL du front : `http://test-symfony.vlabs` (même cas que l'administration)
-    
+
 Votre projet devrait donc avoir cette structure :
 
 ```text
@@ -157,7 +157,7 @@ Note : Pour vos tests, vous pouvez utiliser [Postman](https://www.postman.com/).
 
 | Page                                                          | Route                         |
 | ------------------------------------------------------------- | ----------------------------- |
-| Page d'accueil avec la carte                                  | `/`                      |                                                                         
+| Page d'accueil avec la carte                                  | `/`                      |
 
 ### :dart: Objectifs à atteindre
 
@@ -175,19 +175,19 @@ Note : Pour vos tests, vous pouvez utiliser [Postman](https://www.postman.com/).
 
 ### :heavy_check_mark: Bonus pouvant être réalisés (cocher si c'est le cas)
 
-- [ ] Mettre en place une recherche sur le nom et une [pagination](https://github.com/KnpLabs/KnpPaginatorBundle) pour la liste des agences dans l'administration.
-- [ ] Utiliser [FOSRestBundle](https://packagist.org/packages/friendsofsymfony/rest-bundle) pour votre API.
-- [ ] Utiliser le [JMS Serializer Bundle](http://jmsyst.com/bundles/jmsserializerbundle) pour sérialiser les retours de votre API (Si utilisation de FOSRestBundle, il devrait l'utiliser automatiquement, sinon, [il suffit de lui préciser dans la configuration](https://fosrestbundle.readthedocs.io/en/3.x/1-setting_up_the_bundle.html#b-enable-a-serializer), il se chargera de sérialiser).
+- [X] Mettre en place une recherche sur le nom et une [pagination](https://github.com/KnpLabs/KnpPaginatorBundle) pour la liste des agences dans l'administration.
+- [X] Utiliser [FOSRestBundle](https://packagist.org/packages/friendsofsymfony/rest-bundle) pour votre API.
+- [X] Utiliser le [JMS Serializer Bundle](http://jmsyst.com/bundles/jmsserializerbundle) pour sérialiser les retours de votre API (Si utilisation de FOSRestBundle, il devrait l'utiliser automatiquement, sinon, [il suffit de lui préciser dans la configuration](https://fosrestbundle.readthedocs.io/en/3.x/1-setting_up_the_bundle.html#b-enable-a-serializer), il se chargera de sérialiser).
 - [ ] Utiliser [FOSOAuthServerBundle](https://packagist.org/packages/friendsofsymfony/oauth-server-bundle) ou un équivalent pour gérer la connexion à l'API via le protocole OAuth/JWT. Routes à rajouter : `/oauth/v2/token` pour obtenir son access token. Optionnellement `/oauth/v2/disconnect` pour supprimer les tokens de l'utilisateur en base de données et donc le déconnecter. (si d'autres routes ou informations sont à connaitre, précisez les dans le `note.md`)
-- [ ] Ajouter une couche Service au MVC partout où c'est possible. Pour mieux comprendre, voici le fonctionnement : Effectuer la logique métier, toutes les manipulations et les appels au Model dans un service à part, permettant d'alléger le code présent dans le Controller. Pour vous guider, voici comment communiquent les différentes couches : Model <--> Service <--> Controller <--> View. Le Controller ne sert que de pont entre la requête, les données et la vue.
-- [ ] Utiliser le format YAML pour le routing et les validations de formulaire. Utiliser le format XML pour le mapping Doctrine. Dans l'idée, quand il est possible d'utiliser un autre format que les annotations, le privilégier.
-- [ ] Utiliser des traductions (seulement en français) dans les templates plutôt que des textes en dur.
-- [ ] Utiliser [Webpack Encore](https://symfony.com/doc/current/frontend.html) pour la gestion des assets (CSS/JavaScript/Images/Fonts). Installation des dépendances via [Yarn](https://yarnpkg.com/) recommandée.
-- [ ] Ajouts spontanés ? Si c'est le cas, précisez le dans le `note.md`. 
+- [X] Ajouter une couche Service au MVC partout où c'est possible. Pour mieux comprendre, voici le fonctionnement : Effectuer la logique métier, toutes les manipulations et les appels au Model dans un service à part, permettant d'alléger le code présent dans le Controller. Pour vous guider, voici comment communiquent les différentes couches : Model <--> Service <--> Controller <--> View. Le Controller ne sert que de pont entre la requête, les données et la vue.
+- [X] Utiliser le format YAML pour le routing et les validations de formulaire. Utiliser le format XML pour le mapping Doctrine. Dans l'idée, quand il est possible d'utiliser un autre format que les annotations, le privilégier.
+- [X] Utiliser des traductions (seulement en français) dans les templates plutôt que des textes en dur.
+- [X] Utiliser [Webpack Encore](https://symfony.com/doc/current/frontend.html) pour la gestion des assets (CSS/JavaScript/Images/Fonts). Installation des dépendances via [Yarn](https://yarnpkg.com/) recommandée.
+- [ ] Ajouts spontanés ? Si c'est le cas, précisez le dans le `note.md`.
 
 ## :man_technologist: Créateur
 
-* **{Votre nom}** - *Projet initial* - [V-labs](https://github.com/V-labs/test-symfony)
+* **Maxime Bourdin** - *Projet initial* - [V-labs](https://github.com/V-labs/test-symfony)
 
 ----
 
