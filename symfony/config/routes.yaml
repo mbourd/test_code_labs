@@ -1,0 +1,42 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+app_index:
+    path: /
+    controller: App\Controller\NavigationController::index
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+admin:
+    path: /admin
+    controller: App\Controller\NavigationController::admin
+
+app_agency_index:
+    path: /admin/agencies/
+    controller: App\Controller\AgencyController::index
+
+app_agency_new:
+    path: /admin/agencies/create
+    controller: App\Controller\AgencyController::new
+    methods: ["POST", "GET"]
+
+app_agency_show:
+    path: /admin/agencies/{id}
+    controller: App\Controller\AgencyController::show
+
+app_agency_edit:
+    path: /admin/agencies/{id}/update
+    controller: App\Controller\AgencyController::edit
+    methods: ["POST", "GET"]
+
+app_agency_delete:
+    path: /admin/agencies/{id}/delete
+    controller: App\Controller\AgencyController::delete
+    methods: ["POST", "GET"]
