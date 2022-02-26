@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{"page.agency.edit.title"|trans}}{% endblock %}
+
+{% block body %}
+    <h1>{{"page.agency.edit.title"|trans}}</h1>
+
+    {{ include('agency/_form.html.twig', {'button_label': 'form.agency.update'|trans}) }}
+
+    {{ include('agency/_delete_form.html.twig') }}
+
+    <a href="{{ path('app_agency_index') }}">{{"form.backtolist"|trans}}</a>
+{% endblock %}

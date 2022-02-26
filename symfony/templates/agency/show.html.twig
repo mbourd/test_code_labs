@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agency
+{% endblock %}
+
+{% block body %}
+	<h1>{{"page.agency.show.title"|trans}}</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ agency.id }}</td>
+			</tr>
+			<tr>
+				<th>{{"form.agency.name"|trans}}</th>
+				<td>{{ agency.name }}</td>
+			</tr>
+			<tr>
+				<th>{{"form.agency.address"|trans}}</th>
+				<td>{{ agency.address }}</td>
+			</tr>
+			<tr>
+				<th>Latitude</th>
+				<td>{{ agency.latitude }}</td>
+			</tr>
+			<tr>
+				<th>Longitude</th>
+				<td>{{ agency.longitude }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="row">
+		<div class="col">
+			<a href="{{ path('app_agency_index') }}">{{"form.backtolist"|trans}}</a>
+			&nbsp;|&nbsp;
+			<a href="{{ path('app_agency_edit', {'id': agency.id}) }}">{{"form.edit"|trans}}</a>
+		</div>
+	</div>
+
+	{{ include('agency/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block google_map %}
+	<script>
+		window.dataAgency = {
+name: "{{ agency.name }}",
+lat: "{{ agency.latitude }}",
+lng: "{{ agency.longitude }}"
+};
+	</script>
+	<div id="map"></div>
+
+	<div data-controller="lazy-show-agency"></div>
+{% endblock %}

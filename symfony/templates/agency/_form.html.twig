@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+<div class="row">
+	<div class="col-md-12 form-group">
+		{{form_label(form.name)}}
+		{{form_widget(form.name, {'attr' : {class : "form-control", placeholder: "place"}})}}
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 form-group">
+		{{form_label(form.address)}}
+		{{form_widget(form.address, {'attr' : {class : "form-control"}})}}
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 form-group">
+		{{form_label(form.latitude)}}
+		{{form_widget(form.latitude, {'attr' : {class : "form-control"}})}}
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 form-group">
+		{{form_label(form.longitude)}}
+		{{form_widget(form.longitude, {'attr' : {class : "form-control"}})}}
+	</div>
+</div>
+{# {{ form_widget(form) }} #}
+<div class="row">
+	<div class="col">
+		<div class="col-md-12 form-group">
+			<button class="btn btn-primary">{{ button_label|default("form.agency.save"|trans) }}</button>
+		</div>
+	</div>
+</div>
+{{ form_end(form) }}
+
+<div data-controller="lazy-form-agency"></div>

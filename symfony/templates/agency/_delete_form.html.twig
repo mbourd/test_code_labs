@@ -1,0 +1,8 @@
+<form method="post" action="{{ path('app_agency_delete', {'id': agency.id}) }}" onsubmit="return confirm('{{'message.ask.agency.delete'|trans}}');">
+	<div class="row">
+		<div class="col-md-12 form-group">
+			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ agency.id) }}">
+			<button class="btn btn-danger">{{"form.delete"|trans}}</button>
+		</div>
+	</div>
+</form>
