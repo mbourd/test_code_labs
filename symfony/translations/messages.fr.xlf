@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="3t0Z8MU" resname="form.agency.name">
+        <source>form.agency.name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="sRb8X25" resname="form.agency.address">
+        <source>form.agency.address</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="dU.H.co" resname="form.agency.create">
+        <source>form.agency.create</source>
+        <target>Créer une agence</target>
+      </trans-unit>
+      <trans-unit id="CUOoQQb" resname="form.backtolist">
+        <source>form.backtolist</source>
+        <target>Retour à la liste</target>
+      </trans-unit>
+      <trans-unit id="gvvjD2M" resname="form.edit">
+        <source>form.edit</source>
+        <target>Editer</target>
+      </trans-unit>
+      <trans-unit id="ZUtjqDu" resname="form.delete">
+        <source>form.delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="EnfG5ih" resname="agencies.name">
+        <source>agencies.name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit id="0QNnVfF" resname="agencies.address">
+        <source>agencies.address</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="a2RkFfd" resname="agencies.show">
+        <source>agencies.show</source>
+        <target>Montrer</target>
+      </trans-unit>
+      <trans-unit id="kbOrzvq" resname="agencies.edit">
+        <source>agencies.edit</source>
+        <target>Editer</target>
+      </trans-unit>
+      <trans-unit id="2YhRTvw" resname="agencies.create">
+        <source>agencies.create</source>
+        <target>Créer une nouvelle agence</target>
+      </trans-unit>
+      <trans-unit id="KkNuP4u" resname="agencies.nodata">
+        <source>agencies.nodata</source>
+        <target>Aucune données</target>
+      </trans-unit>
+      <trans-unit id="FY3BiDr" resname="form.agency.save">
+        <source>form.agency.save</source>
+        <target>Sauvegarder</target>
+      </trans-unit>
+      <trans-unit id="9RJs8jl" resname="form.agency.update">
+        <source>form.agency.update</source>
+        <target>Mettre à jour</target>
+      </trans-unit>
+      <trans-unit id="f.pLz0M" resname="app.loggedas">
+        <source>app.loggedas</source>
+        <target>Connecté en tant que</target>
+      </trans-unit>
+      <trans-unit id="Cl8hgub" resname="app.pleaselogin">
+        <source>app.pleaselogin</source>
+        <target>S'il vous plait connectez-vous</target>
+      </trans-unit>
+      <trans-unit id="U5gH4T4" resname="form.login.password">
+        <source>form.login.password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="gbWxK3m" resname="form.login.signin">
+        <source>form.login.signin</source>
+        <target>Connection</target>
+      </trans-unit>
+      <trans-unit id="W.JMktI" resname="page.agency.index.title">
+        <source>page.agency.index.title</source>
+        <target>Liste des agences</target>
+      </trans-unit>
+      <trans-unit id="spJcUOK" resname="page.agency.show.title">
+        <source>page.agency.show.title</source>
+        <target>Détail de l'agence</target>
+      </trans-unit>
+      <trans-unit id="6SwhIEz" resname="page.agency.new.title">
+        <source>page.agency.new.title</source>
+        <target>Création d'une agence</target>
+      </trans-unit>
+      <trans-unit id="kAFfG8L" resname="page.agency.edit.title">
+        <source>page.agency.edit.title</source>
+        <target>Modification d'une agence</target>
+      </trans-unit>
+      <trans-unit id="likkoW4" resname="page.notfound.title">
+        <source>page.notfound.title</source>
+        <target>Page introuvable</target>
+      </trans-unit>
+      <trans-unit id="aVQIYz0" resname="page.notfound.message">
+        <source>page.notfound.message</source>
+        <target>La page demandé est introuvable, vérifiez si l'adresse est bien écrite</target>
+      </trans-unit>
+      <trans-unit id="Bx4Bwsu" resname="message.returnindex">
+        <source>message.returnindex</source>
+        <target>Retour à l'index</target>
+      </trans-unit>
+      <trans-unit id="m8USVE7" resname="message.ask.agency.delete">
+        <source>message.ask.agency.delete</source>
+        <target>Etes-vous certain de supprimer cette agence?</target>
+      </trans-unit>
+      <trans-unit id="ELIY7SR" resname="message.tologout">
+        <source>message.tologout</source>
+        <target>Se déconnecter</target>
+      </trans-unit>
+      <trans-unit id="0HJ_3_9" resname="message.tologin">
+        <source>message.tologin</source>
+        <target>Se connecter</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
