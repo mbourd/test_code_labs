@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="App\Repository\AgencyRepository" name="App\Entity\Agency" table="agency">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="address" type="string" column="address" length="255" nullable="false"/>
+    <field name="latitude" type="float" column="latitude" nullable="false"/>
+    <field name="longitude" type="float" column="longitude" nullable="false"/>
+  </entity>
+</doctrine-mapping>
