@@ -5,36 +5,12 @@ namespace App\Entity;
 use App\Repository\AgencyRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=AgencyRepository::class)
- */
 class Agency
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
     private $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $name;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $address;
-
-    /**
-     * @ORM\Column(type="float")
-     */
     private $latitude;
-
-    /**
-     * @ORM\Column(type="float")
-     */
     private $longitude;
 
     public function getId(): ?int

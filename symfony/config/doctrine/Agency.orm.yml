@@ -1,0 +1,45 @@
+App\Entity\Agency:
+    type: entity
+    table: agency
+    repositoryClass: App\Repository\AgencyRepository
+    id:
+        id:
+            type: integer
+            scale: null
+            length: null
+            unique: false
+            nullable: false
+            precision: null
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            scale: null
+            length: 255
+            unique: false
+            nullable: false
+            precision: null
+        address:
+            type: string
+            scale: null
+            length: 255
+            unique: false
+            nullable: false
+            precision: null
+        latitude:
+            type: float
+            scale: null
+            length: null
+            unique: false
+            nullable: false
+            precision: null
+        longitude:
+            type: float
+            scale: null
+            length: null
+            unique: false
+            nullable: false
+            precision: null
+    lifecycleCallbacks: {  }
