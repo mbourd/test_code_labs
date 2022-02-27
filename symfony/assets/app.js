@@ -20,8 +20,10 @@ import "datatables.net-bs5/js/dataTables.bootstrap5"
 import "datatables.net-bs5/css/dataTables.bootstrap5.min.css"
 
 import services from "./services/services";
+import { appAPI as _appAPI } from './config/axios';
 
 export const service = new services();
+export const appAPI = _appAPI();
 
 $(".list-agencies").DataTable({
   "language": {
@@ -38,3 +40,7 @@ $(".list-agencies").DataTable({
     },
   }
 });
+
+// service.agency.postAgency({ "name": "Eiffel Tower, Avenue Anatole France, Paris, France", "address": "Eiffel Tower, Avenue Anatole France, Paris, France", "latitude": 48.8583701, "longitude": 2.2944813	 }).then(r => console.log(r));
+// service.agency.getAgencyById(1).then(r => console.log(r));
+// service.agency.getAllAgenciesLikeName("Eiffel").then(r => console.log(r));
