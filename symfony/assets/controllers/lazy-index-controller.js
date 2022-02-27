@@ -3,10 +3,17 @@ import { service } from '../app';
 
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-  connect() {
+  async connect() {
+    let listAgencies = [];
+
+    await service.agency.getAllAgenciesLikeName("")
+      .then(r => {
+        listAgencies = r.data;
+      });
+
     service.googleMap.initMap(
       document.getElementById("map"),
-      // { query: "Eiffel Tower" },
+      { query: listAgencies }
     );
   }
 }

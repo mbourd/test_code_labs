@@ -65,12 +65,17 @@ class ApiController extends AbstractFOSRestController
 
     /**
      * @Rest\Get()
-     * @Rest\QueryParam(name="name")
+     * @Rest\QueryParam(name="name", default="", nullable=true)
      */
     public function getAgencies(ParamFetcher $paramFetcher, AgencyService $agencyService)
     {
         $name = $paramFetcher->get("name");
-        $listAgencies = $agencyService->getAllLikeName($name);
+
+        if ($name === "") {
+            $listAgencies = $agencyService->getAll();
+        } else {
+            $listAgencies = $agencyService->getAllLikeName($name);
+        }
 
         return $this->handleView(View::create($listAgencies, Response::HTTP_OK));
     }
