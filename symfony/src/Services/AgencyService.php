@@ -11,16 +11,13 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class AgencyService
 {
     private $entityManagerInterface;
-    // private $validatorInterface;
     private $agencyRepository;
 
     public function __construct(
         EntityManagerInterface $entityManagerInterface,
-        // ValidatorInterface $validatorInterface,
         AgencyRepository $agencyRepository
     ) {
         $this->entityManagerInterface = $entityManagerInterface;
-        // $this->validatorInterface = $validatorInterface;
         $this->agencyRepository = $agencyRepository;
     }
 
@@ -42,24 +39,17 @@ class AgencyService
         $agency->setLatitude($data["latitude"]);
         $agency->setLongitude($data["longitude"]);
 
-        $this->entityManagerInterface->persist($agency);
-        $this->entityManagerInterface->flush();
-
-        return $agency;
+        return $this->agencyRepository->add($agency);
     }
 
     public function updateAgency(Agency $agency)
     {
-        $this->entityManagerInterface->persist($agency);
-        $this->entityManagerInterface->flush();
-
-        return $agency;
+        return $this->agencyRepository->add($agency);
     }
 
     public function deleteAgency(Agency $agency)
     {
-        $this->entityManagerInterface->remove($agency);
-        $this->entityManagerInterface->flush();
+        $this->agencyRepository->remove($agency);
     }
 
     public function getAllLikeName(string $name): array
