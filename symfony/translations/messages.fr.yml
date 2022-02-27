@@ -32,6 +32,6 @@ messages.errors.agency.getall: 'Impossible de récupérer la liste des agences'
 messages.errors.agency.addNew: 'Impossible d''ajouter une nouvelle agence'
 messages.errors.agency.edit: 'Impossible d''éditer l''agence'
 messages.errors.agency.delete: 'Impossible de supprimer l''agence'
-messages.success.agency.addNew: "Ajout de l'agence avec succès!"
-messages.success.agency.edit: "Modification de l'agence avec succès!"
-messages.success.agency.delete: "Suppression de l'agence avec succès!"
+messages.success.agency.addNew: "Ajout avec succès de l'agence {{nameAgency}}"
+messages.success.agency.edit: "Modification avec succès de l'agence ayant l'id {{idAgency}}"
+messages.success.agency.delete: "Suppression avec succès de l'agence {{nameAgency}}"

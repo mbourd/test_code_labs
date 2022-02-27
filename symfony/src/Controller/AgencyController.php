@@ -14,7 +14,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AgencyController extends AbstractController
 {
-    public function index(AgencyService $agencyService, TranslatorInterface $translator ): Response
+    public function index(AgencyService $agencyService, TranslatorInterface $translator): Response
     {
         try {
             return $this->render('agency/index.html.twig', [
@@ -44,7 +44,7 @@ class AgencyController extends AbstractController
                         "latitude" => $agency->getLatitude(),
                         "longitude" => $agency->getLongitude(),
                     ]);
-                    $this->addFlash("success", $translator->trans("messages.success.agency.addNew"));
+                    $this->addFlash("success", $translator->trans("messages.success.agency.addNew", ["{{nameAgency}}" => $agency->getName()]));
 
                     return $this->redirectToRoute('app_agency_index', [], Response::HTTP_SEE_OTHER);
                 }
@@ -80,7 +80,7 @@ class AgencyController extends AbstractController
 
                 if (count($errors) === 0) {
                     $agencyService->updateAgency($agency);
-                    $this->addFlash("success", $translator->trans("messages.success.agency.edit"));
+                    $this->addFlash("success", $translator->trans("messages.success.agency.edit", ["{{idAgency}}" => $agency->getId()]));
 
                     return $this->redirectToRoute('app_agency_index', [], Response::HTTP_SEE_OTHER);
                 }
@@ -102,7 +102,7 @@ class AgencyController extends AbstractController
         try {
             if ($this->isCsrfTokenValid('delete' . $agency->getId(), $request->request->get('_token'))) {
                 $agencyService->deleteAgency($agency);
-                $this->addFlash("success", $translator->trans("messages.success.agency.delete"));
+                $this->addFlash("success", $translator->trans("messages.success.agency.delete", ["{{nameAgency}}" => $agency->getName()]));
             }
 
             return $this->redirectToRoute('app_agency_index', [], Response::HTTP_SEE_OTHER);
