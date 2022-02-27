@@ -1,13 +1,13 @@
 - executer `composer install` à l'intérieur du conteneur php
 
 
-- utilisateur de doctrine migrations
+- utilisation de doctrine migrations
 - exectuer `php bin/console doctrine:migrations:migrate -n` à l'intérieur du conteneur php
 
 
-- il y a des données fixtures pour initialiser remplir la table User avec un utilisateur
+- utilisation de fixtures fixtures pour initialiser remplir la table User avec un utilisateur
 - executer `php bin/console doctrine:fixtures:load -n` à l'intérieur du conteneur php
-- utilisateur : `admin@local.com`
+- utilisateur : `admin@v-labs.fr`
 - mot de passe : `admin`
 
 
