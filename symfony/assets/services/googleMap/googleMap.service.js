@@ -5,7 +5,7 @@ export default class googleMap {
     let spot = new google.maps.LatLng(lat, lng);
     let infowindow = new google.maps.InfoWindow();
     let map = new google.maps.Map(
-      htmlEl, { zoom: 2, center: spot, ...configMap }
+      htmlEl, { zoom: Array.isArray(request.query) ? 2 : 15, center: spot, ...configMap }
     );
     let finalRequest = {
       query: 'Eiffel Tower',
