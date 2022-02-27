@@ -47,8 +47,9 @@ class ApiController extends AbstractFOSRestController
         $data = json_decode($request->getContent(), true);
         $form = $this->createForm(AgencyType::class, null, ['method' => 'POST', 'csrf_protection' => false]);
         $form->submit($data, true);
+        $errors = $agencyService->getFormErrors($form);
 
-        if (!$form->isValid()) {
+        if (count($errors) > 0) {
             return $this->handleView(View::create("Données invalid", Response::HTTP_BAD_REQUEST));
         }
 
