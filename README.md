@@ -183,7 +183,7 @@ Note : Pour vos tests, vous pouvez utiliser [Postman](https://www.postman.com/).
 - [X] Utiliser le format YAML pour le routing et les validations de formulaire. Utiliser le format XML pour le mapping Doctrine. Dans l'idée, quand il est possible d'utiliser un autre format que les annotations, le privilégier.
 - [X] Utiliser des traductions (seulement en français) dans les templates plutôt que des textes en dur.
 - [X] Utiliser [Webpack Encore](https://symfony.com/doc/current/frontend.html) pour la gestion des assets (CSS/JavaScript/Images/Fonts). Installation des dépendances via [Yarn](https://yarnpkg.com/) recommandée.
-- [ ] Ajouts spontanés ? Si c'est le cas, précisez le dans le `note.md`.
+- [X] Ajouts spontanés ? Si c'est le cas, précisez le dans le `note.md`.
 
 ## :man_technologist: Créateur
 
