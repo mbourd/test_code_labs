@@ -2,21 +2,21 @@ App\Entity\Agency:
     properties:
         name:
             - NotBlank:
-                message: "Le nom de l'agence doit être mentionné"
+                message: 'validator.agency.name.notblank'
             # - Length:
             #     min: 3
-            #     max: 50
+            #     max: 4
             #     minMessage: "Please use at least 3 chars"
-            #     maxMessage: "Please use max 50 chars"
+            #     maxMessage: 'validator.agency.name.maxLength'
             # - Regex:
             #     pattern: "/^[A-Za-z]+$/"
             #     message: "Please use only letters"
         address:
             - NotBlank:
-                message: "L'adresse de l'agence doit être mentionné"
+                message: 'validator.agency.address.notblank'
         latitude:
             - NotBlank:
-                message: "La coordonée Latitude doit être mentionné"
+                message: 'validator.agency.latitude.notblank'
         longitude:
             - NotBlank:
-                message: "La coordonée Longitude doit être mentionné"
+                message: 'validator.agency.longitude.notblank'

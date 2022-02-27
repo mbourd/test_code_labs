@@ -1,0 +1,30 @@
+form.agency.name: Nom
+form.agency.address: Adresse
+form.agency.create: 'Créer une agence'
+form.backtolist: 'Retour à la liste'
+form.edit: Editer
+form.delete: Supprimer
+agencies.name: Nom
+agencies.address: Adresse
+agencies.show: Montrer
+agencies.edit: Editer
+agencies.create: 'Créer une nouvelle agence'
+agencies.nodata: 'Aucune données'
+form.agency.save: Sauvegarder
+form.agency.update: 'Mettre à jour'
+app.loggedas: 'Connecté en tant que'
+app.pleaselogin: 'S''il vous plait connectez-vous'
+form.login.password: 'Mot de passe'
+form.login.signin: Connection
+page.agency.index.title: 'Liste des agences'
+page.agency.show.title: 'Détail de l''agence'
+page.agency.new.title: 'Création d''une agence'
+page.agency.edit.title: 'Modification d''une agence'
+page.notfound.title: 'Page introuvable'
+page.notfound.message: 'La page demandé est introuvable, vérifiez si l''adresse est bien écrite'
+message.returnindex: 'Retour à l''index'
+message.ask.agency.delete: 'Etes-vous certain de supprimer cette agence?'
+message.tologout: 'Se déconnecter'
+message.tologin: 'Se connecter'
+message.rest.agency.notfound: 'L''agence n''existe pas'
+message.rest.agency.invaliddata: 'Les données fournies sont incorrectes'
