@@ -22,4 +22,4 @@
 - pas utilisé de "host" sur Symfony, pas encore eu l'occasion
     + le chemin pour l'administration `/admin/`
     + le chemin API `/api/`
-- je n'ai pas mis en place de OAuth, pas encore eu l'occasion
+- je n'ai pas mis en place de OAuth, pas encore eu l'occasion. J'aurais mis en place JWT Auth avec un formulaire de connection React, mais avec un formulaire Twig je ne connait pas encore le méchanisme
