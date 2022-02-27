@@ -117,6 +117,14 @@
         <source>message.tologin</source>
         <target>Se connecter</target>
       </trans-unit>
+      <trans-unit id="zL9F3kE" resname="message.rest.agency.notfound">
+        <source>message.rest.agency.notfound</source>
+        <target>L'agence n'existe pas</target>
+      </trans-unit>
+      <trans-unit id="ySjbk1w" resname="message.rest.agency.invaliddata">
+        <source>message.rest.agency.invaliddata</source>
+        <target>Les données fournies sont incorrectes</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -13,6 +13,7 @@ use FOS\RestBundle\Request\ParamFetcher;
 use FOS\RestBundle\View\View;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * @Route("/api/agencies")
@@ -27,9 +28,13 @@ class ApiController extends AbstractFOSRestController
      *
      * @return void
      */
-    public function getAgency(int $id, AgencyService $agencyService)
+    public function getAgency(int $id, AgencyService $agencyService, TranslatorInterface $translator)
     {
         $agency = $agencyService->getById($id);
+
+        if (is_null($agency)) {
+            return $this->handleView(View::create($translator->trans("message.rest.agency.notfound"), Response::HTTP_NOT_FOUND));
+        }
 
         return $this->handleView(View::create($agency, Response::HTTP_OK));
     }
@@ -42,7 +47,7 @@ class ApiController extends AbstractFOSRestController
      *
      * @return void
      */
-    public function postAgency(Request $request, AgencyService $agencyService)
+    public function postAgency(Request $request, AgencyService $agencyService, TranslatorInterface $translator)
     {
         $data = json_decode($request->getContent(), true);
         $form = $this->createForm(AgencyType::class, null, ['method' => 'POST', 'csrf_protection' => false]);
@@ -50,7 +55,7 @@ class ApiController extends AbstractFOSRestController
         $errors = $agencyService->getFormErrors($form);
 
         if (count($errors) > 0) {
-            return $this->handleView(View::create("Données invalid", Response::HTTP_BAD_REQUEST));
+            return $this->handleView(View::create($translator->trans("message.rest.agency.invaliddata"), Response::HTTP_BAD_REQUEST));
         }
 
         $craetedAgency = $agencyService->createAgency($data);
