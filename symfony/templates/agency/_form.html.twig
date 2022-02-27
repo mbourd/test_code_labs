@@ -3,24 +3,53 @@
 	<div class="col-md-12 form-group">
 		{{form_label(form.name)}}
 		{{form_widget(form.name, {'attr' : {class : "form-control", placeholder: "place"}})}}
+		{% if errors.name is defined %}
+			<div class="row">
+				<small class="text-danger">
+					{{errors.name}}
+				</small>
+			</div>
+		{% endif %}
+
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12 form-group">
 		{{form_label(form.address)}}
 		{{form_widget(form.address, {'attr' : {class : "form-control"}})}}
+		{% if errors.address is defined %}
+			<div class="row">
+				<small class="text-danger">
+					{{errors.address}}
+				</small>
+			</div>
+		{% endif %}
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12 form-group">
 		{{form_label(form.latitude)}}
 		{{form_widget(form.latitude, {'attr' : {class : "form-control"}})}}
+		{% if errors.latitude is defined %}
+			<div class="row">
+				<small class="text-danger">
+					{{errors.latitude}}
+				</small>
+			</div>
+		{% endif %}
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12 form-group">
 		{{form_label(form.longitude)}}
 		{{form_widget(form.longitude, {'attr' : {class : "form-control"}})}}
+		{% if errors.longitude is defined %}
+			<div class="row">
+				<small class="text-danger">
+					{{errors.longitude}}
+				</small>
+			</div>
+		{% endif %}
 	</div>
 </div>
 {# {{ form_widget(form) }} #}
