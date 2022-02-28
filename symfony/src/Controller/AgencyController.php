@@ -22,7 +22,7 @@ class AgencyController extends AbstractController
             ]);
         } catch (\Throwable $e) {
             $this->addFlash('danger', $translator->trans("messages.errors.agency.getall"));
-            $this->redirectToRoute("admin");
+            return $this->redirectToRoute("app_index");
         }
     }
 
@@ -57,7 +57,7 @@ class AgencyController extends AbstractController
             ]);
         } catch (\Throwable $e) {
             $this->addFlash('danger', $translator->trans("messages.errors.agency.addNew"));
-            $this->redirectToRoute("admin");
+            return $this->redirectToRoute("admin");
         }
     }
 
@@ -93,7 +93,7 @@ class AgencyController extends AbstractController
             ]);
         } catch (\Throwable $e) {
             $this->addFlash('danger', $translator->trans("messages.errors.agency.edit"));
-            $this->redirectToRoute("admin");
+            return $this->redirectToRoute("admin");
         }
     }
 
@@ -108,7 +108,7 @@ class AgencyController extends AbstractController
             return $this->redirectToRoute('app_agency_index', [], Response::HTTP_SEE_OTHER);
         } catch (\Throwable $e) {
             $this->addFlash('danger', $translator->trans("messages.errors.agency.delete"));
-            $this->redirectToRoute("admin");
+            return $this->redirectToRoute("admin");
         }
     }
 }
