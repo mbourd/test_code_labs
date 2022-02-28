@@ -30,13 +30,17 @@ class ApiController extends AbstractFOSRestController
      */
     public function getAgency(int $id, AgencyService $agencyService, TranslatorInterface $translator)
     {
-        $agency = $agencyService->getById($id);
+        try {
+            $agency = $agencyService->getById($id);
 
-        if (is_null($agency)) {
-            return $this->handleView(View::create($translator->trans("message.rest.agency.notfound"), Response::HTTP_NOT_FOUND));
+            if (is_null($agency)) {
+                return $this->handleView(View::create($translator->trans("message.rest.agency.notfound"), Response::HTTP_NOT_FOUND));
+            }
+
+            return $this->handleView(View::create($agency, Response::HTTP_OK));
+        } catch (\Throwable $e) {
+            return $this->handleView(View::create(["message" => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR));
         }
-
-        return $this->handleView(View::create($agency, Response::HTTP_OK));
     }
 
     /**
@@ -49,18 +53,22 @@ class ApiController extends AbstractFOSRestController
      */
     public function postAgency(Request $request, AgencyService $agencyService, TranslatorInterface $translator)
     {
-        $data = json_decode($request->getContent(), true);
-        $form = $this->createForm(AgencyType::class, null, ['method' => 'POST', 'csrf_protection' => false]);
-        $form->submit($data, true);
-        $errors = $agencyService->getFormErrors($form);
+        try {
+            $data = json_decode($request->getContent(), true);
+            $form = $this->createForm(AgencyType::class, null, ['method' => 'POST', 'csrf_protection' => false]);
+            $form->submit($data, true);
+            $errors = $agencyService->getFormErrors($form);
 
-        if (count($errors) > 0) {
-            return $this->handleView(View::create($translator->trans("message.rest.agency.invaliddata"), Response::HTTP_BAD_REQUEST));
+            if (count($errors) > 0) {
+                return $this->handleView(View::create($translator->trans("message.rest.agency.invaliddata"), Response::HTTP_BAD_REQUEST));
+            }
+
+            $craetedAgency = $agencyService->createAgency($data);
+
+            return $this->handleView(View::create($craetedAgency, Response::HTTP_CREATED));
+        } catch (\Throwable $e) {
+            return $this->handleView(View::create(["message" => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR));
         }
-
-        $craetedAgency = $agencyService->createAgency($data);
-
-        return $this->handleView(View::create($craetedAgency, Response::HTTP_CREATED));
     }
 
     /**
@@ -69,14 +77,18 @@ class ApiController extends AbstractFOSRestController
      */
     public function getAgencies(ParamFetcher $paramFetcher, AgencyService $agencyService)
     {
-        $name = $paramFetcher->get("name");
+        try {
+            $name = $paramFetcher->get("name");
 
-        if ($name === "") {
-            $listAgencies = $agencyService->getAll();
-        } else {
-            $listAgencies = $agencyService->getAllLikeName($name);
+            if ($name === "") {
+                $listAgencies = $agencyService->getAll();
+            } else {
+                $listAgencies = $agencyService->getAllLikeName($name);
+            }
+
+            return $this->handleView(View::create($listAgencies, Response::HTTP_OK));
+        } catch (\Throwable $e) {
+            return $this->handleView(View::create(["message" => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR));
         }
-
-        return $this->handleView(View::create($listAgencies, Response::HTTP_OK));
     }
 }
