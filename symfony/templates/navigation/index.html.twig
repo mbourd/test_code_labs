@@ -4,6 +4,17 @@
 	Index
 {% endblock %}
 
+{% block body %}
+    {% for type, messages in app.flashes(['success', 'danger']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{type}} alert-dismissible fade show">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
+
 {% block google_map %}
     <div id="map"></div>
 
