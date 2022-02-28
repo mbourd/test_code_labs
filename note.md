@@ -20,6 +20,7 @@
 
 
 - pas utilisé de "host" sur Symfony, pas encore eu l'occasion
+    + remarque : je n'ai pas réussi à acceder à `http://test-symfony.vlabs`, je n'ai pas encore vu les host en symfony et les configuration associés
     + le chemin pour l'administration `http://localhost/admin/` qui redirige vers `http://localhost/admin/agencies/`
     + le chemin API `http://localhost/api/` (utilisation de Axios)
 - je n'ai pas mis en place de OAuth, pas encore eu l'occasion. J'aurais mis en place JWT Auth avec un formulaire de connection React, mais avec un formulaire Twig je ne connait pas encore le méchanisme
