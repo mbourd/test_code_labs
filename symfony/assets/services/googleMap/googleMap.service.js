@@ -1,6 +1,8 @@
 import { service } from "../../app";
 
 export default class googleMap {
+  PLACE_STATUS_OK = google.maps.places.PlacesServiceStatus.OK;
+
   initMap(htmlEl, request = {}, configMap = {}, lat = 0, lng = 0) {
     let spot = this.provideLatitudeLongitude(lat, lng);
     let infowindow = this.provideInfoWindow();
@@ -20,7 +22,7 @@ export default class googleMap {
           query: element.name
         };
         placeService.findPlaceFromQuery(finalRequest, (results, status) => {
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
+          if (status === this.PLACE_STATUS_OK) {
             for (var i = 0; i < results.length; i++) {
               service.googleMap.createMarker(results[i], map, infowindow);
             }
@@ -30,7 +32,7 @@ export default class googleMap {
       });
     } else {
       placeService.findPlaceFromQuery(finalRequest, (results, status) => {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
+        if (status === this.PLACE_STATUS_OK) {
           for (var i = 0; i < results.length; i++) {
             service.googleMap.createMarker(results[i], map, infowindow);
           }
@@ -44,12 +46,12 @@ export default class googleMap {
   createMarker(place, map, infowindow) {
     if (!place.geometry || !place.geometry.location) return;
 
-    const marker = new google.maps.Marker({
+    const marker = this.provideMarker({
       map,
       position: place.geometry.location,
     });
 
-    google.maps.event.addListener(marker, "click", () => {
+    this.addEventListenerOn(marker, "click", () => {
       infowindow.setContent(place.name || "");
       infowindow.open(map);
     });
@@ -73,5 +75,13 @@ export default class googleMap {
 
   providePlaceService(...params) {
     return new google.maps.places.PlacesService(...params);
+  }
+
+  provideMarker(...params) {
+    return new google.maps.Marker(...params);
+  }
+
+  addEventListenerOn(...params) {
+    google.maps.event.addListener(...params);
   }
 }
