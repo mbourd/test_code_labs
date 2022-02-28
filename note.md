@@ -1,3 +1,6 @@
+- executer `docker-compose up --build` pour construire les conteneurs
+    + executer `./runner php dev` pour entrer dans le conteneur php
+
 - executer `composer install` à l'intérieur du conteneur php
 
 - créer la base de données
