@@ -26,9 +26,9 @@ class ApiController extends AbstractFOSRestController
      * @param integer $id
      * @param \App\Services\AgencyService $agencyService
      *
-     * @return void
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getAgency(int $id, AgencyService $agencyService, TranslatorInterface $translator)
+    public function getAgency(int $id, AgencyService $agencyService, TranslatorInterface $translator): Response
     {
         try {
             $agency = $agencyService->getById($id);
@@ -49,9 +49,9 @@ class ApiController extends AbstractFOSRestController
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \App\Services\AgencyService $agencyService
      *
-     * @return void
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function postAgency(Request $request, AgencyService $agencyService, TranslatorInterface $translator)
+    public function postAgency(Request $request, AgencyService $agencyService, TranslatorInterface $translator): Response
     {
         try {
             $data = json_decode($request->getContent(), true);
@@ -74,8 +74,13 @@ class ApiController extends AbstractFOSRestController
     /**
      * @Rest\Get()
      * @Rest\QueryParam(name="name", default="", nullable=true)
+     *
+     * @param \FOS\RestBundle\Request\ParamFetcher $paramFetcher
+     * @param \App\Services\AgencyService $agencyService
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function getAgencies(ParamFetcher $paramFetcher, AgencyService $agencyService)
+    public function getAgencies(ParamFetcher $paramFetcher, AgencyService $agencyService): Response
     {
         try {
             $name = $paramFetcher->get("name");
