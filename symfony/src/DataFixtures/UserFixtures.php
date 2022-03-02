@@ -22,7 +22,7 @@ class UserFixtures extends Fixture
         $users = [
             [
                 "email" => "admin@v-labs.fr",
-                "roles" => ["ROLE_ADMIN"],
+                "roles" => ["ROLE_SUPER_ADMIN"],
             ]
         ];
 
