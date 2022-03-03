@@ -36,7 +36,7 @@ class UserFixtures extends Fixture
                     $user->addRole($_role);
                 }
             } else {
-                $user->addRole($value['role']);
+                $user->addRole($value['roles']);
             }
 
             $manager->persist($user);
