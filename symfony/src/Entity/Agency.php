@@ -42,24 +42,24 @@ class Agency
         return $this;
     }
 
-    public function getLatitude(): ?float
+    public function getLatitude()
     {
         return $this->latitude;
     }
 
-    public function setLatitude(float $latitude): self
+    public function setLatitude($latitude): self
     {
         $this->latitude = $latitude;
 
         return $this;
     }
 
-    public function getLongitude(): ?float
+    public function getLongitude()
     {
         return $this->longitude;
     }
 
-    public function setLongitude(float $longitude): self
+    public function setLongitude( $longitude): self
     {
         $this->longitude = $longitude;
 
