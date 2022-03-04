@@ -4,11 +4,13 @@
 		{{form_label(form.name)}}
 		{{form_widget(form.name, {'attr' : {class : "form-control", placeholder: "place"}})}}
 		{% if errors.name is defined %}
+			{% for k, message in errors.name %}
 			<div class="row">
 				<small class="text-danger">
-					{{errors.name}}
+					{{message}}
 				</small>
 			</div>
+			{% endfor %}
 		{% endif %}
 
 	</div>
@@ -18,11 +20,13 @@
 		{{form_label(form.address)}}
 		{{form_widget(form.address, {'attr' : {class : "form-control"}})}}
 		{% if errors.address is defined %}
+			{% for k, message in errors.address %}
 			<div class="row">
 				<small class="text-danger">
-					{{errors.address}}
+					{{message}}
 				</small>
 			</div>
+			{% endfor %}
 		{% endif %}
 	</div>
 </div>
@@ -31,11 +35,13 @@
 		{{form_label(form.latitude)}}
 		{{form_widget(form.latitude, {'attr' : {class : "form-control"}})}}
 		{% if errors.latitude is defined %}
+			{% for k, message in errors.latitude %}
 			<div class="row">
 				<small class="text-danger">
-					{{errors.latitude}}
+					{{message}}
 				</small>
 			</div>
+			{% endfor %}
 		{% endif %}
 	</div>
 </div>
@@ -44,11 +50,13 @@
 		{{form_label(form.longitude)}}
 		{{form_widget(form.longitude, {'attr' : {class : "form-control"}})}}
 		{% if errors.longitude is defined %}
+			{% for k, message in errors.longitude %}
 			<div class="row">
 				<small class="text-danger">
-					{{errors.longitude}}
+					{{message}}
 				</small>
 			</div>
+			{% endfor %}
 		{% endif %}
 	</div>
 </div>

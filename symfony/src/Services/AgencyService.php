@@ -65,7 +65,13 @@ class AgencyService
             if (!$form->isValid()) {
                 foreach ($form->all() as $child) {
                     if (!$child->isValid()) {
-                        $errors[$child->getName()] = (string) $child->getErrors();
+                        $messages = [];
+
+                        foreach ($child->getErrors() as $error) {
+                            $messages[] = $error->getMessage();
+                        }
+
+                        $errors[$child->getName()] = $messages;
                     }
                 }
             }
