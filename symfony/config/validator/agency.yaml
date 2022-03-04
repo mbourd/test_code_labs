@@ -17,6 +17,12 @@ App\Entity\Agency:
         latitude:
             - NotBlank:
                 message: 'validator.agency.latitude.notblank'
+            - Regex:
+                pattern: "/^-?([1-8]?[1-9]|[1-9]0).{1}[0-9]{1,6}/"
+                message: "Invalid latitude data"
         longitude:
             - NotBlank:
                 message: 'validator.agency.longitude.notblank'
+            - Regex:
+                pattern: "/^-?([1]?[1-7][1-9]|[1]?[1-8][0]|[1-9]?[0-9]).{1}[0-9]{1,6}/"
+                message: "Invalid longitude data"

@@ -15,8 +15,8 @@ class AgencyType extends AbstractType
         $builder
             ->add('name', TextType::class, ["label" => "form.agency.name"])
             ->add('address', TextType::class, ["label"=> "form.agency.address"])
-            ->add('latitude')
-            ->add('longitude')
+            ->add('latitude', TextType::class)
+            ->add('longitude', TextType::class)
         ;
     }
 
