@@ -75,8 +75,8 @@ export default class googleMap {
     });
   }
 
-  initAutoCompletePlaceSearch(inputHtmlEl) {
-    return new google.maps.places.Autocomplete(inputHtmlEl);
+  initAutoCompletePlaceSearch(...params) {
+    return new google.maps.places.Autocomplete(...params);
   }
 
   provideLatitudeLongitude(...params) {

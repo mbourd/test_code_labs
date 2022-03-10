@@ -6,7 +6,7 @@ export default class extends Controller {
   connect() {
     let autocomplete;
 
-    autocomplete = service.googleMap.initAutoCompletePlaceSearch(document.getElementById("agency_name"))
+    autocomplete = service.googleMap.initAutoCompletePlaceSearch(document.getElementById("agency_address"))
 
     autocomplete
       .addListener("place_changed", /*onChangePlace*/() => {
