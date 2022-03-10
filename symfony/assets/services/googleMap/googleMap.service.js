@@ -17,30 +17,48 @@ export default class googleMap {
 
     if (Array.isArray(finalRequest.query)) {
       [].forEach.call(finalRequest.query, element => {
-        finalRequest = {
-          ...finalRequest,
-          query: element.name
-        };
+        if (element.hasOwnProperty("latitude") && element.hasOwnProperty("longitude")) {
+          this.createMarkerWithLatLng(element.latitude, element.longitude, element, map, infowindow);
+        } else {
+          finalRequest = {
+            ...finalRequest,
+            query: element.name
+          };
+          placeService.findPlaceFromQuery(finalRequest, (results, status) => {
+            if (status === this.PLACE_STATUS_OK) {
+              for (var i = 0; i < results.length; i++) {
+                service.googleMap.createMarker(results[i], map, infowindow);
+              }
+              // map.setCenter(results[0].geometry.location);
+            }
+          });
+        }
+      });
+    } else {
+      if (lat != 0 || lng != 0) {
+        this.createMarkerWithLatLng(lat, lng, { name: request.query }, map, infowindow)
+      } else
         placeService.findPlaceFromQuery(finalRequest, (results, status) => {
           if (status === this.PLACE_STATUS_OK) {
             for (var i = 0; i < results.length; i++) {
               service.googleMap.createMarker(results[i], map, infowindow);
             }
-            // map.setCenter(results[0].geometry.location);
+            map.setCenter(results[0].geometry.location);
           }
         });
-      });
-    } else {
-      placeService.findPlaceFromQuery(finalRequest, (results, status) => {
-        if (status === this.PLACE_STATUS_OK) {
-          for (var i = 0; i < results.length; i++) {
-            service.googleMap.createMarker(results[i], map, infowindow);
-          }
-          map.setCenter(results[0].geometry.location);
-        }
-      });
     }
+  }
 
+  createMarkerWithLatLng(lat, lng, element, map, infowindow) {
+    const marker = this.provideMarker({
+      map,
+      position: { lat, lng },
+      title: element.name
+    });
+    this.addEventListenerOn(marker, "click", () => {
+      infowindow.setContent(element.name || "");
+      infowindow.open(map);
+    });
   }
 
   createMarker(place, map, infowindow) {

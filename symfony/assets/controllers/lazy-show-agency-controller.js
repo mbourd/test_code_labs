@@ -8,8 +8,8 @@ export default class extends Controller {
       document.getElementById("map"),
       { query: window.dataAgency.name },
       {},
-      window.dataAgency.lat,
-      window.dataAgency.lng
+      parseFloat(window.dataAgency.lat),
+      parseFloat(window.dataAgency.lng)
     );
   }
 }
