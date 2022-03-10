@@ -31,15 +31,19 @@ class AgencyService
         return $this->agencyRepository->findAll();
     }
 
-    public function createAgency(array $data): Agency
+    public function createAgency($data): Agency
     {
-        $agency = new Agency();
-        $agency->setName($data["name"]);
-        $agency->setAddress($data["address"]);
-        $agency->setLatitude($data["latitude"]);
-        $agency->setLongitude($data["longitude"]);
+        if ($data instanceof Agency) {
+            return $this->agencyRepository->add($data);
+        } else if (is_array($data)) {
+            $agency = new Agency();
+            $agency->setName($data["name"]);
+            $agency->setAddress($data["address"]);
+            $agency->setLatitude($data["latitude"]);
+            $agency->setLongitude($data["longitude"]);
 
-        return $this->agencyRepository->add($agency);
+            return $this->agencyRepository->add($agency);
+        }
     }
 
     public function updateAgency(Agency $agency)

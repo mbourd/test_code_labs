@@ -63,7 +63,7 @@ class ApiController extends AbstractFOSRestController
                 return $this->handleView(View::create($translator->trans("message.rest.agency.invaliddata"), Response::HTTP_BAD_REQUEST));
             }
 
-            $craetedAgency = $agencyService->createAgency($data);
+            $craetedAgency = $agencyService->createAgency($form->getData());
 
             return $this->handleView(View::create($craetedAgency, Response::HTTP_CREATED));
         } catch (\Throwable $e) {

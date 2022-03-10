@@ -38,12 +38,7 @@ class AgencyController extends AbstractController
                 $errors = $agencyService->getFormErrors($form);
 
                 if (count($errors) === 0) {
-                    $agencyService->createAgency([
-                        "name" => $agency->getName(),
-                        "address" => $agency->getAddress(),
-                        "latitude" => $agency->getLatitude(),
-                        "longitude" => $agency->getLongitude(),
-                    ]);
+                    $agencyService->createAgency($form->getData());
                     $this->addFlash("success", $translator->trans("messages.success.agency.addNew", ["{{nameAgency}}" => $agency->getName()]));
 
                     return $this->redirectToRoute('app_agency_index', [], Response::HTTP_SEE_OTHER);
