@@ -1,3 +1,4 @@
+<!--
 <p align="center">
   <a href="http://v-labs.fr/">
     <img src="http://v3.v-labs.fr/wp-content/themes/vlabs/dist/assets/img/logo_vlabs.svg" alt="Logo V-labs" width="177.976" height="42.739">
@@ -29,6 +30,7 @@
     Veuillez <strong>lire l'ensemble des informations avant de commencer le projet</strong> et les <strong>relire avant d'envoyer pour validation</strong> pour éviter tout oubli dans le livrable.
     </p>
 </p>
+-->
 
 ## :bookmark_tabs: Sommaire
 
@@ -64,16 +66,16 @@ Dans le cadre de cet exercice, un client vous a contacté pour réaliser un outi
 - Effectuer l'installation de la [dernière version LTS de Symfony](https://symfony.com/releases/) (actuellement la 5.4.4) dans le dossier `test-symfony/symfony`. Vous pouvez accéder au container Docker PHP en utilisateur dev via `./runner php dev` à la racine du projet. Une fois dans le container, vous pouvez utiliser `composer` (pour installer Symfony et les autres vendors) et les commandes Symfony via `bin/console` directement.
 - Voici les configurations à utiliser :
   + Utilisateur super admin à créer (Memory User Provider ou en base de données):
-    * Email : `admin@v-labs.fr`
-    * Mot de passe : `vlabs`
+    * Email : `admin@domain.com`
+    * Mot de passe : `admin`
   + Base de données :
     * Nom : `symfony`
     * Utilisateur : `root`
     * Mot de passe : `root`
     * Hôte : `mariadb`
-  + URL de l'administration : `http://admin.test-symfony.vlabs` (dans le cas de l'utilisation de la configuration Docker Compose, sinon, précisez en haut du `README.md`). Par défaut, l'accès est `http://test-symfony.vlabs`, il faudra donc créer un [host](https://symfony.com/doc/current/routing.html#sub-domain-routing) pour gérer le sous-domaine, sa valeur provenant du fichier `.env` (ou `.env.local`, mais il faudra la version finale dans le `.env` pour avoir les informations sur git) et pouvant être appliqué à un [groupe de routes](https://symfony.com/doc/current/routing.html#routing-route-groups).
+  <!-- + URL de l'administration : `http://admin.test-symfony.vlabs` (dans le cas de l'utilisation de la configuration Docker Compose, sinon, précisez en haut du `README.md`). Par défaut, l'accès est `http://test-symfony.vlabs`, il faudra donc créer un [host](https://symfony.com/doc/current/routing.html#sub-domain-routing) pour gérer le sous-domaine, sa valeur provenant du fichier `.env` (ou `.env.local`, mais il faudra la version finale dans le `.env` pour avoir les informations sur git) et pouvant être appliqué à un [groupe de routes](https://symfony.com/doc/current/routing.html#routing-route-groups).
   + URL de l'API : `http://api.test-symfony.vlabs` (même cas que l'administration)
-  + URL du front : `http://test-symfony.vlabs` (même cas que l'administration)
+  + URL du front : `http://test-symfony.vlabs` (même cas que l'administration) -->
 
 Votre projet devrait donc avoir cette structure :
 
@@ -132,7 +134,8 @@ string salt
 
 ##### Administration (Sous-domaine : `admin`)
 
-Note : Il faudra rediriger la route `/` de l'administration (`http://admin.test-symfony.vlabs/`) vers la route qui liste les agences.
+<!-- Note : Il faudra rediriger la route `/` de l'administration (`http://admin.test-symfony.vlabs/`) vers la route qui liste les agences. -->
+Note : Il faudra rediriger la route `/` de l'administration vers la route qui liste les agences.
 
 | Page                                                          | Route                         |
 | ------------------------------------------------------------- | ----------------------------- |
@@ -185,8 +188,8 @@ Note : Pour vos tests, vous pouvez utiliser [Postman](https://www.postman.com/).
 - [X] Utiliser [Webpack Encore](https://symfony.com/doc/current/frontend.html) pour la gestion des assets (CSS/JavaScript/Images/Fonts). Installation des dépendances via [Yarn](https://yarnpkg.com/) recommandée.
 - [X] Ajouts spontanés ? Si c'est le cas, précisez le dans le `note.md`.
 
+<!--
 ## :man_technologist: Créateur
-
 * **Maxime Bourdin** - *Projet initial* - [V-labs](https://github.com/V-labs/test-symfony)
 
 ----
@@ -196,3 +199,4 @@ Note : Pour vos tests, vous pouvez utiliser [Postman](https://www.postman.com/).
     •
     <strong><a href="https://github.com/V-labs" target="_blank">GitHub V-labs</a></strong>
 </p>
+-->

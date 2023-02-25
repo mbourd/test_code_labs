@@ -1,0 +1,28 @@
+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
+
+_ MAPPING ORM _ INFO: https://symfony.com/doc/current/doctrine/reverse_engineering.html
+php bin/console doctrine:mapping:import "App\Entity" annotation --path=src/Entity
+php bin/console doctrine:mapping:convert --namespace="App\Entity" xml config/doctrine (DEPRECATED)
+docker-compose exec ac-php-cli bin/console doctrine:mapping:import "App\Entity" xml --path=config/doctrine
+                           php bin/console doctrine:mapping:import "App\Entity" xml --path=config/doctrine
+                       --> php bin/console doctrine:mapping:import --force App xml --path=config/settings/mapping
+WARN: don't forget : <entity repository-class="App\Repository\EntityRepository" ... >...</entity>
+
+_ generates getter/setter methods for one specific Entity _ INFO: https://symfony.com/doc/current/doctrine/reverse_engineering.html
+composer require symfony/maker-bundle --dev
+php bin/console make:entity --regenerate App
+php bin/console make:entity --regenerate "App\Entity\Country"
+
+
+_ TRANSLATIONS _
+composer require symfony/translation
+php bin/console translation:extract --force fr --format=yml
+
+composer require symfony/validator doctrine/annotations
+
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+
+composer require sensio/framework-extra-bundle
+
+composer require doctrine/annotations doctrine/common doctrine/doctrine-bundle doctrine/doctrine-fixtures-bundle doctrine/doctrine-migrations-bundle doctrine/orm doctrine/persistence friendsofsymfony/rest-bundle jms/serializer-bundle sensio/framework-extra-bundle symfony/config symfony/console symfony/flex symfony/form symfony/framework-bundle symfony/monolog-bundle symfony/options-resolver symfony/proxy-manager-bridge symfony/runtime symfony/security-bundle symfony/serializer symfony/translation symfony/twig-bundle symfony/validator symfony/webpack-encore-bundle symfony/yaml twig/extra-bundle twig/twig

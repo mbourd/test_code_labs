@@ -21,15 +21,16 @@ class UserFixtures extends Fixture
     {
         $users = [
             [
-                "email" => "admin@v-labs.fr",
+                "email" => "admin@domain.com",
                 "roles" => ["ROLE_SUPER_ADMIN"],
+                "password" => "admin"
             ]
         ];
 
         foreach ($users as $key => $value) {
             $user = new User();
             $user->setEmail($value["email"]);
-            $user->setPassword($this->encoder->hashPassword($user, "admin"));
+            $user->setPassword($this->encoder->hashPassword($user, $value["password"]));
 
             if (is_array($value['roles'])) {
                 foreach ((array)$value['roles'] as $_role) {

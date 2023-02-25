@@ -11,9 +11,9 @@
     + exectuer `php bin/console doctrine:migrations:migrate -n` à l'intérieur du conteneur php
 
 
-- utilisation de fixtures fixtures pour initialiser remplir la table User avec un utilisateur
+- utilisation de fixtures pour initialiser remplir la table User avec un utilisateur
     + executer `php bin/console doctrine:fixtures:load -n` à l'intérieur du conteneur php
-        * utilisateur : `admin@v-labs.fr`
+        * utilisateur : `admin@domain.com`
         * mot de passe : `admin`
 
 
